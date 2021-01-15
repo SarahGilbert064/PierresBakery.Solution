@@ -5,12 +5,18 @@
 @model PierresBakery.Models.Flavor
 
 <h4>Edit a Flavor</h4>
+
+<h4>Edit this Flavor's info: @Html.DisplayFor(model => model.FlavorName)</h4>
+
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.FlavorId)
 
     @Html.LabelFor(model => model.FlavorName)
     @Html.EditorFor(model => model.FlavorName)
+
+    @Html.Label("Add a Treat")
+    @Html.DropDownList("TreatId")
   
     <input type="submit" value="Edit" />
 }
