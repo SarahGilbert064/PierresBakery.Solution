@@ -10,15 +10,15 @@
 
 @if(Model.JoinEntries.Count == 0)
 {
-  <p>This CHILD does not belong to any PARENTS</p>
+  <p>This CHILD does not belong to any flavors</p>
 }
 else
 {
-  <h4>PARENTS the CHILD belongs to:</h4>
+  <h4>Flavors the CHILD belongs to:</h4>
   @* <ul>
-    @foreach(var join in Model.Parents)
+    @foreach(var join in Model.Flavors)
     {
-      <li>@join.Parent.ParentName</li>
+      <li>@join.Flavor.FlavorName</li>
     }
   </ul> *@
 }
@@ -26,16 +26,16 @@ else
   <ul>
   @foreach(var join in Model.JoinEntries)
   {
-    <li>@join.Parent.ParentName</li>
-    @using (Html.BeginForm("DeleteParent", "Childs"))
+    <li>@join.Flavor.FlavorName</li>
+    @using (Html.BeginForm("DeleteFlavor", "Childs"))
     {
-      @Html.Hidden("joinId", @join.ParentChildId)
+      @Html.Hidden("joinId", @join.FlavorChildId)
       <input type="submit" value="Delete"/>
     }
   }
   </ul>
   
-<p>@Html.ActionLink("Add a parent", "AddParent", new { id = Model.ChildId })</p>
+<p>@Html.ActionLink("Add a flavor", "AddFlavor", new { id = Model.ChildId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Child", "Edit", new { id = Model.ChildId })</p>
 <p>@Html.ActionLink("Delete Child", "Delete", new { id = Model.ChildId })</p>

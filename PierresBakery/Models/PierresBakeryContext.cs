@@ -1,14 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-//Identifying the Database Schema
 
 namespace PierresBakery.Models
 {
   public class PierresBakeryContext : DbContext
   {
-    public virtual DbSet<Parent> Parents { get; set; } //DBSets are new tables being created. 
+    public virtual DbSet<Flavor> Flavors { get; set; }
     public DbSet<Child> Childs { get; set; }
 
-    public DbSet<ParentChild> ParentChild { get; set; }
+    public DbSet<FlavorTreat> FlavorTreat { get; set; }
 
     public PierresBakeryContext(DbContextOptions options) : base(options) { } 
   }

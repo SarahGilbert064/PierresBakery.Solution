@@ -2,16 +2,16 @@
   Layout = "_Layout";
 }
 
-@model PierresBakery.Models.Parent
+@model PierresBakery.Models.Flavor
 
-<h4>Edit a parent</h4>
+<h4>Edit a Flavor</h4>
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.ParentId)
+    @Html.HiddenFor(model => model.FlavorId)
     @* @Html.HiddenFor(model => model.StartDate) *@
 
-    @Html.LabelFor(model => model.ParentName)
-    @Html.EditorFor(model => model.ParentName)
+    @Html.LabelFor(model => model.FlavorName)
+    @Html.EditorFor(model => model.FlavorName)
 
     @* @Html.DisplayNameFor(model => model.StartDate) 
     @Html.EditorFor(model => model.StartDate) *@
@@ -22,4 +22,4 @@
 
     <input type="submit" value="Edit" />
 }
-<p>@Html.ActionLink("Show all parents", "Index")</p>
+<p>@Html.ActionLink("Show all flavors", "Index")</p>

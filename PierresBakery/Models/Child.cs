@@ -6,12 +6,12 @@ namespace PierresBakery.Models
   {
     public Child()
     {
-      this.JoinEntries = new HashSet<ParentChild>();
+      this.JoinEntries = new HashSet<FlavorChild>();
     }
 
     public int ChildId { get; set; }
     public string ChildName { get; set; }
 
-    public ICollection<ParentChild> JoinEntries { get; }
+    public ICollection<FlavorChild> JoinEntries { get; }
   }
 }  
