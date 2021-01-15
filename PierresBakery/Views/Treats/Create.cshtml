@@ -2,18 +2,18 @@
   Layout = "_Layout";
 }
 
-@model PierresBakery.Models.Child
+@model PierresBakery.Models.Treat
 
-<h4>Add a new Child</h4>
+<h4>Add a new Treat</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.ChildName)
-    @Html.TextBoxFor(model => model.ChildName)
+    @Html.LabelFor(model => model.TreatName)
+    @Html.TextBoxFor(model => model.TreatName)
 
     @Html.Label("Select Flavor")
     @Html.DropDownList("FlavorId")
 
-    <input type="submit" value="Add new child" class="btn btn-default" />
+    <input type="submit" value="Add new treat" class="btn btn-default" />
 }
-<p>@Html.ActionLink("Show all childs", "Index")</p>
+<p>@Html.ActionLink("Show all treats", "Index")</p>

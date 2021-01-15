@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace PierresBakery.Controllers
 {
   // [Authorize]
-  public class ChildsController : Controller
+  public class TreatsController : Controller
   {
     private readonly PierresBakeryContext _db;
     // private readonly UserManager<ApplicationUser> _userManager;
 
-    public ChildsController(PierresBakeryContext db)
+    public TreatsController(PierresBakeryContext db)
     {
       // _userManager = userManager;
       _db = db;
@@ -21,7 +21,7 @@ namespace PierresBakery.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.Childs.ToList());
+      return View(_db.Treats.ToList());
     }
 
     public ActionResult Create()
@@ -31,15 +31,15 @@ namespace PierresBakery.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Child child, int FlavorId)
+    public ActionResult Create(Treat treat, int FlavorId)
     {
       // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       // var currentUser = await _userManager.FindByIdAsync(userId);
       // item.User = currentUser;
-      _db.Childs.Add(child);
+      _db.Treats.Add(treat);
       if (FlavorId != 0)
       {
-        _db.FlavorChild.Add(new FlavorChild() { FlavorId = FlavorId, ChildId = child.ChildId });
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -47,45 +47,45 @@ namespace PierresBakery.Controllers
 
     public ActionResult Details(int id)
     {
-      var thisChild = _db.Childs
-          .Include(child => child.JoinEntries)
+      var thisTreat = _db.Treats
+          .Include(treat => treat.JoinEntries)
           .ThenInclude(join => join.Flavor)
-          .FirstOrDefault(child => child.ChildId == id);
-      return View(thisChild);
+          .FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisChild = _db.Childs.FirstOrDefault(child => child.ChildId == id);
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
-      return View(thisChild);
+      return View(thisTreat);
     }
     
     [HttpPost]
-    public ActionResult Edit(Child child, int FlavorId)
+    public ActionResult Edit(Treat treat, int FlavorId)
     {
       if (FlavorId != 0)
       {
-        _db.FlavorChild.Add(new FlavorChild() { FlavorId = FlavorId, ChildId = child.ChildId });
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
-      _db.Entry(child).State=EntityState.Modified;
+      _db.Entry(treat).State=EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult AddFlavor(int id)
     {
-      var thisChild = _db.Childs.FirstOrDefault(childs => childs.ChildId == id);
+      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
-      return View(thisChild);
+      return View(thisTreat);
     }
     
     [HttpPost]
-    public ActionResult AddFlavor(Child child, int FlavorId)
+    public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
       if(FlavorId != 0)
       {
-        _db.FlavorChild.Add(new FlavorChild() { FlavorId = FlavorId, ChildId = child.ChildId});
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId});
       }
         _db.SaveChanges();
         return RedirectToAction("Index");
@@ -93,15 +93,15 @@ namespace PierresBakery.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisChild = _db.Childs.FirstOrDefault(childs => childs.ChildId == id);
-      return View(thisChild);
+      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      return View(thisTreat);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisChild = _db.Childs.FirstOrDefault(childs => childs.ChildId == id);
-      _db.Childs.Remove(thisChild);
+      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      _db.Treats.Remove(thisTreat);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -109,8 +109,8 @@ namespace PierresBakery.Controllers
     [HttpPost]
     public ActionResult DeleteFlavor(int joinId)
     {
-      var joinEntry = _db.FlavorChild.FirstOrDefault(entry => entry.FlavorChildId == joinId);
-      _db.FlavorChild.Remove(joinEntry);
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

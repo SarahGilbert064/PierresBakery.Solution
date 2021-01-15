@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PierresBakery.Controllers
 {
-  public class FlavorsController : Controller // allows ParentsController to operate as a Controller
+  public class FlavorsController : Controller
   {
-    private readonly PierresBakeryContext _db; // Defining the Database as Template
-    public FlavorsController(PierresBakeryContext db) //constructor for the controller 
+    private readonly PierresBakeryContext _db;
+    public FlavorsController(PierresBakeryContext db)
     {
       _db = db;
     }
@@ -37,7 +37,7 @@ namespace PierresBakery.Controllers
     {
       var thisFlavor = _db.Flavors
           .Include(flavor => flavor.JoinEntries)
-          .ThenInclude(join => join.Child)
+          .ThenInclude(join => join.Treat)
           .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }

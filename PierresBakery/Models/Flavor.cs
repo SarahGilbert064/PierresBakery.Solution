@@ -9,7 +9,7 @@ namespace PierresBakery.Models
     {
         public Flavor()
         {
-            this.JoinEntries = new HashSet<FlavorChild>();
+            this.JoinEntries = new HashSet<FlavorTreat>();
         }
         [DisplayName("Start Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd hh:mm tt}")]
@@ -18,7 +18,7 @@ namespace PierresBakery.Models
 
         [DisplayName("Flavor Name")]
         public string FlavorName { get; set; }
-        public virtual ICollection<FlavorChild> JoinEntries { get; set; }
+        public virtual ICollection<FlavorTreat> JoinEntries { get; set; }
     }
 }
 

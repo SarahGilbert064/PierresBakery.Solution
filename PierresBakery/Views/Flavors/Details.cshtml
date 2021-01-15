@@ -11,15 +11,15 @@
 
 @if(@Model.JoinEntries.Count == 0)
 {
-  <p>This Flavor does not contain any CHILDS</p>
+  <p>We have no treats for sale with this flavor! Try back later :[</p>
 }
 else
 {
-  <h4>CHILDS the Flavorcontains:</h4>
+  <h4>Treats that contain this flavor:</h4>
   <ul>
   @foreach(var join in Model.JoinEntries)
   {
-    <li>@join.Child.ChildName</li>
+    <li>@join.Treat.TreatName</li>
   }
   </ul>
 }

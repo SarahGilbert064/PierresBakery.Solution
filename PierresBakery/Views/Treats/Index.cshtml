@@ -3,19 +3,19 @@
 }
 
 @using PierresBakery.Models;
-@model List<PierresBakery.Models.Child>;
+@model List<PierresBakery.Models.Treat>;
 
-<h1>CHILDS</h1>
+<h1>Treats</h1>
 
 @if (@Model.Count == 0)
 {
-  <h3>No CHILDS have been added yet!</h3>
+  <h3>No Treats have been added yet!</h3>
 } 
 
-@foreach (Child child in Model)
+@foreach (Treat treat in Model)
 {
-  <li>@Html.ActionLink($"{child.ChildName}", "Details", new { id = child.ChildId })</li>
+  <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
 }
 
-<p>@Html.ActionLink("Add new child", "Create")</p>
+<p>@Html.ActionLink("Add new treat", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
