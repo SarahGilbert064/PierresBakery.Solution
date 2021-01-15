@@ -1,25 +1,48 @@
-.container {
-  background-color: rgb(134, 206, 248);
-}
+@media screen and (min-width: 50rem) {
+  .container {
+    margin: auto;
+    padding: 1rem;
+    max-width: 60rem;
+  }
 
-h1 {
-  text-align: center;
-}
+  body {
+    background-image:url(https://i.pinimg.com/736x/0c/fc/d2/0cfcd2d0a60838f40f67b7edc078370f.jpg);
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    object-fit: contain;
+    background-attachment: fixed;
+  }
 
-h2 {
-  text-align: center;
-}
+  .jumbotron {
+    border: 12px black;
+    padding: 34px;
+    box-sizing: border-box;
+    position: relative;
+    top: 50px;
+    right: 380px;
+    border-style: groove;
+    border-radius: 0 0 85% 85% / 30%;
+  }
 
-h3 {
-  text-align: center;
-}
+  h1 {
+    text-align: center;
+  }
 
-h4 {
-  text-align: center;
-}
+  h2 {
+    text-align: center;
+  }
 
-p {
-  text-align: center;
+  h3 {
+    text-align: center;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
 }
 
 
