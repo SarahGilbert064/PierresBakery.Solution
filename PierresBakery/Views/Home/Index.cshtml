@@ -10,16 +10,20 @@
 
 @foreach(Flavor flavor in ViewBag.Flavors)
 {
-  <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+  <h4>
+    <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+  </h4>
 }
 <br>
 <h3>Check out our tasty treats!</h3>
 
 @foreach(Treat treat in ViewBag.Treats)
 {
-  <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+  <h4>
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+  </h4>
 }
-<br>
+
 <p>@Html.ActionLink("See all treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("See all flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("Create an account", "Index", "Account")</p>

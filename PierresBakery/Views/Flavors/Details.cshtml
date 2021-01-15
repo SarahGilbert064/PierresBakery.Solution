@@ -4,9 +4,9 @@
 
 @model PierresBakery.Models.Flavor;
 
-<h2>Flavor Details</h2>
+<h3>Flavor Details</h3>
 <hr />
-<h3>@Html.Label("Flavor Type"): @Html.DisplayFor(model => model.FlavorName)</h3>
+<h2>@Html.Label("Flavor Type"): @Html.DisplayFor(model => model.FlavorName)</h2>
 
 @if(@Model.JoinEntries.Count == 0)
 {

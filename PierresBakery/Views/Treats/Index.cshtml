@@ -5,14 +5,14 @@
 @using PierresBakery.Models;
 @model IEnumerable<PierresBakery.Models.Treat>;
 
-<h1>Treats for @User.Identity.Name</h1>
+<h3>Treats for @User.Identity.Name</h3>
 
 @if (@Model.Any())
 {
   <ul>
     @foreach (Treat treat in Model)
     {
-      <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
+      <h4><li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li></h4>
     }
   </ul>
 }
