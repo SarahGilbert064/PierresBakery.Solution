@@ -6,14 +6,18 @@
 
 <h1>Welcome To The Pierre's Bakery</h1>
 <br>
+<h3>What Flavor are you feeling today?</h3>
+
 @foreach(Flavor flavor in ViewBag.Flavors)
 {
-  <p>@flavor.FlavorName</p>
+  <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
 }
 <br>
+<h3>Check out our tasty treats!</h3>
+
 @foreach(Treat treat in ViewBag.Treats)
 {
-  <p>@treat.TreatName</p>
+  <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
 }
 <br>
 <p>@Html.ActionLink("See all treats", "Index", "Treats")</p>
