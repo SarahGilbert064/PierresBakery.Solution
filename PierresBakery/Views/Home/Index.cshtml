@@ -2,7 +2,20 @@
   Layout = "_Layout";
 }
 
+@using PierresBakery.Models;
+
 <h1>Welcome To The Pierre's Bakery</h1>
+<br>
+@foreach(Flavor flavor in ViewBag.Flavors)
+{
+  <p>@flavor.FlavorName</p>
+}
+<br>
+@foreach(Treat treat in ViewBag.Treats)
+{
+  <p>@treat.TreatName</p>
+}
+<br>
 <p>@Html.ActionLink("See all treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("See all flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
