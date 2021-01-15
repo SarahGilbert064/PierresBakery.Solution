@@ -8,18 +8,10 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.FlavorId)
-    @* @Html.HiddenFor(model => model.StartDate) *@
 
     @Html.LabelFor(model => model.FlavorName)
     @Html.EditorFor(model => model.FlavorName)
-
-    @* @Html.DisplayNameFor(model => model.StartDate) 
-    @Html.EditorFor(model => model.StartDate) *@
-    
-    @Html.LabelFor(model => model.StartDate)
-    @Html.EditorFor(model => model.StartDate)
   
-
     <input type="submit" value="Edit" />
 }
 <p>@Html.ActionLink("Show all flavors", "Index")</p>
