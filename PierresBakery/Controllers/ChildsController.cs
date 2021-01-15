@@ -1,19 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
-using Template.Models;
+using PierresBakery.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Template.Controllers
+namespace PierresBakery.Controllers
 {
   // [Authorize]
   public class ChildsController : Controller
   {
-    private readonly TemplateContext _db;
+    private readonly PierresBakeryContext _db;
     // private readonly UserManager<ApplicationUser> _userManager;
 
-    public ChildsController(TemplateContext db)
+    public ChildsController(PierresBakeryContext db)
     {
       // _userManager = userManager;
       _db = db;

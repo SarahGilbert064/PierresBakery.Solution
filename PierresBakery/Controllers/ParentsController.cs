@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
-using Template.Models;
+using PierresBakery.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace Template.Controllers
+namespace PierresBakery.Controllers
 {
   public class ParentsController : Controller // allows ParentsController to operate as a Controller
   {
-    private readonly TemplateContext _db; // Defining the Database as Template
-    public ParentsController(TemplateContext db) //constructor for the controller 
+    private readonly PierresBakeryContext _db; // Defining the Database as Template
+    public ParentsController(PierresBakeryContext db) //constructor for the controller 
     {
       _db = db;
     }

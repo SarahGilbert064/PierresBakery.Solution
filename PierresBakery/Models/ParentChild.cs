@@ -1,4 +1,4 @@
-namespace Template.Models
+namespace PierresBakery.Models
 {
   public class ParentChild
   {

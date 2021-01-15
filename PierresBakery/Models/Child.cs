@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Template.Models
+namespace PierresBakery.Models
 {
   public class Child
   {
