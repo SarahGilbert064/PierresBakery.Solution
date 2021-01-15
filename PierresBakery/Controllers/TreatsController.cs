@@ -15,7 +15,7 @@ namespace PierresBakery.Controllers
 
     public TreatsController(PierresBakeryContext db)
     {
-      // _userManager = userManager;
+      _userManager = userManager;
       _db = db;
     }
 
