@@ -4,13 +4,15 @@ Updated: 15-01-2021
 
 ## **Project Description**
 
-This project was created to help us further our knowledge with using join statements to help connect tables in our database. We also were able to get additional practice with using many to many relationships with our tables in our datababse. This application is a univeristy registrar that helps keep track of students and courses. Here is a breakdown of the features it has, their functionality, and their benefits.
+This appliction was created to further our knowledge with user athentication and many-to-many relationships. Below you will find a number of user stories to better describe the features this application has.
 
 
 | ID | User Story | Accepted |
 |---------|-----------|--------|
-| US01 | "USER STORY HERE"| True/False |
-| US02 | "USER STORY HERE" | True/False |
+| US01 | "As the user, I should have access to the splash/home page, which lists all flavors and treats offerred by this business."| True |
+| US02 | "As the user, I should be able to register my own account, with login and log out capabilities."| True |
+| US03 | "As a logged in user, I should be able to create, update, and delete both flavors and treats." | True |
+| US04 | "As a logged in user, I should be able to navigate back to the splash page, this time having full capabilities to access information about treats/flavors." | True |
 
 
 
@@ -109,29 +111,29 @@ Then open MySQL Workbench and select the Local instance 3306 server. You will ne
 ### **Install/Setup Project** ###
 
 **Option 1** (download zip file)
-1) Copy and paste the following GitHub project link into your web browser's url bar and hit enter/return. https://github.com/RMGit-it/Template.Solution.git
+1) Copy and paste the following GitHub project link into your web browser's url bar and hit enter/return. https://github.com/Sarahgilbert064/PierresBakery.Solution.git
 2) Download a .zip copy the repository by clicking on the large green "Code" button near the upper right corner of the screen.
 3) Right click the .zip file and extract(unzip) it's contents.
-4) Open your computer's terminal/console, and navigate to folder called "__Template.Solution__". 
+4) Open your computer's terminal/console, and navigate to folder called "__PierresBakery.Solution__". 
 
 
 **Option 2** (via git console/terminal)
 1) Open your Git enabled terminal/console and navigate to a directory that you wish to download this project to.
 2) Type the following line of code into your terminal/console to automatically download the project to your current direcory and hit return/enter
 
-    <code>git clone https://github.com/SarahGilbert064/Template.Solution.git</code>
+    <code>git clone https://github.com/SarahGilbert064/PierresBakery.Solution.git</code>
 
-3) Once the project has finished downloading, use the terminal/console to navigate to the "__Template.Solution__" folder of the project.
+3) Once the project has finished downloading, use the terminal/console to navigate to the "__PierresBakery.Solution__" folder of the project.
 
 
 **Setup Database Connection**
 
-Create a new file in the root directory of the __Template.Solution/Template__ directory named "appsettings.json".  Copy and past the following code inside of the file.
+Create a new file in the root directory of the __PierresBakery.Solution/PierresBakery__ directory named "appsettings.json".  Copy and past the following code inside of the file.
 
 ```
 {
   "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=Template;uid=YourId;pwd=YourPassword;"
+      "DefaultConnection": "Server=localhost;Port=3306;database=PierresBakery;uid=YourId;pwd=YourPassword;"
   }
 }
 ```
@@ -153,61 +155,6 @@ You can now type the follow code to launch the program...
 <code>dotnet run</code>
 
 The program should launch using your default web browser at URL: localhost:5000.
-
-## **SQL Schema**
-REPLACE WITH YOUR PROJECT DATABASE
-
-1 - In SQL Workbench 
-2 - On the top nav bar click the server drop down 
-3 - Select Data export 
-4 - Select your Scema in the table 
-5 - Select Dump Structure only from dropdown
-6 - Select Export to self contain file radio button 
-7 - Rename the file First_Last_project.SQL
-8 - Select Include Create Scema check box 
-9 - Start Export
-10 - Open the Dump
-11 - Remove all "--" "/*" content 
-12 - Add USE `ProjectName`; to the top of the file
-13 - Then delete these instuctions! 
-
-```
-CREATE DATABASE  IF NOT EXISTS `template` 
-USE `template`;
-
-DROP TABLE IF EXISTS `__efmigrationshistory`;
-CREATE TABLE `__efmigrationshistory` (
-  `MigrationId` varchar(95) NOT NULL,
-  `ProductVersion` varchar(32) NOT NULL,
-  PRIMARY KEY (`MigrationId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-DROP TABLE IF EXISTS `courses`;
-CREATE TABLE `courses` (
-  `CourseId` int NOT NULL AUTO_INCREMENT,
-  `CourseName` longtext,
-  PRIMARY KEY (`CourseId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-DROP TABLE IF EXISTS `coursestudent`;
-CREATE TABLE `coursestudent` (
-  `CourseStudentId` int NOT NULL AUTO_INCREMENT,
-  `CourseId` int NOT NULL,
-  `StudentId` int NOT NULL,
-  PRIMARY KEY (`CourseStudentId`),
-  KEY `IX_CourseStudent_CourseId` (`CourseId`),
-  KEY `IX_CourseStudent_StudentId` (`StudentId`),
-  CONSTRAINT `FK_CourseStudent_Courses_CourseId` FOREIGN KEY (`CourseId`) REFERENCES `courses` (`CourseId`) ON DELETE CASCADE,
-  CONSTRAINT `FK_CourseStudent_Students_StudentId` FOREIGN KEY (`StudentId`) REFERENCES `students` (`StudentId`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-DROP TABLE IF EXISTS `students`;
-CREATE TABLE `students` (
-  `StudentId` int NOT NULL AUTO_INCREMENT,
-  `StudentName` longtext,
-  PRIMARY KEY (`StudentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-```
 
 
 ## **Usage / Examples**
