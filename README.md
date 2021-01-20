@@ -169,6 +169,7 @@ There are no known bugs
 * C# 7.3
 * .NET Core 2.2
 * Entity
+* Identity
 * Git
 * MySQL
 * CSS
